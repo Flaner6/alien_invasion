@@ -4,6 +4,8 @@ from pygame.sprite import Group
 from ship import Ship
 from ship import Heart
 
+
+
 class Scoreboard:
     """A class to report scoring information."""
 
@@ -74,6 +76,9 @@ class Scoreboard:
         if self.stats.score > self.stats.high_score:
             self.stats.high_score = self.stats.score
             self.prep_high_score()
+            f = open("score.txt", "w")
+            f.write(str(self.stats.high_score))
+           
 
     def show_score(self):
         """Draw scores, level, and ships to the screen."""
